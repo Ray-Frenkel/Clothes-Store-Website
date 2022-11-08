@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <header>
+        <script src="https://kit.fontawesome.com/bb84af38dc.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>Clothes Website</title>
+        <link rel="stylesheet" href="style/main.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    </header>
+</head>
+
+<body id="bd">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/mains.js"></script>
+
+    <nav class="navbar">
+        <div class="navbar_container">
+            <canvas id="myCanvas" width="130" height="50"></canvas>
+            <img id="logo" src="images/fashionlogo.jpeg" style="display:none;">
+            <script>
+                window.onload = function () {
+                    var c = document.getElementById("myCanvas");
+                    var ctx = c.getContext("2d");
+                    var img = document.getElementById("logo");
+                    ctx.drawImage(img, 0, 0, 130, 50);
+                }
+            </script>
+            <ul class="navbar_menu">
+                <li class="navbar_item">
+                    <button type="button" class="button" onclick="ShowHomePage()">Home</button>
+                </li>
+                <li class="navbar_item">
+                    <button type="button" class="button" onclick="ShowChatPage()">Chat</button>
+                </li>
+                <li class="navbar_item">
+                    <button type="button" class="button" onclick="ShowSearchPage()">Search</button>
+                </li>
+                <li class="navbar_item">
+                    <button type="button" class="button" onclick="ShowCatalogPage()">Catalog</button>
+                </li>
+                <li class="navbar_item">
+                    <button type="button" class="button" onclick="ShowLogInPage()">Log In</button>
+                </li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <section class="header">
+        <section class="pro-container">
+            <div id="com"></div>
+        </section>
+        <section class="pro-container">
+            <div id="loadDiv"></div>
+            <div id="price"></div>
+        </section>
+    </section>
+    <section class="pro-container">
+        <div id="bodyPageHome">
+
+            <div class="text-box">
+                <h1 id="wel">Welcome To Fashion Shop</h1>
+                <h2 id="lux">luxury brand</h2>
+            </div>
+
+            <section class="one">
+                <h1 id="rec">Our Recommendations</h1>
+                <h3>Follow us on facebook page for updates</h3>
+
+                <div class="row">
+                    <div class="one-col">
+                        <h3>You may like</h3>
+                        <p>Talk to us in the chat</p>
+                    </div>
+                    <div class="one-col">
+                        <h3>New Season</h3>
+                        <p>View our catalog</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="two">
+                <h1>Our Top Brands</h1>
+                <h3>Limited Edition</h3>
+                <div class="row">
+                    <div class="two-col">
+                        <img src="images/nikettl.png">
+                        <div class="layer">
+                            <h3>Nike</h3>
+                        </div>
+                    </div>
+                    <div class="two-col">
+                        <img src="images/balenciagettl.png">
+                        <div class="layer">
+                            <h3>Balenciaga</h3>
+                        </div>
+                    </div>
+                    <div class="two-col">
+                        <img src="images/supremettl.jpg">
+                        <div class="layer">
+                            <h3>Supreme</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="three">
+                <div id="map"></div>
+                <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1lRPzPBHuKlkSVrXGlWvhGYQlISrMSBE&callback=initMap">
+                    </script>
+            </section>
+
+            <section class="four">
+                <h1>Our Coustomers</h1>
+                <h3>Join the club</h3>
+
+                <div class="row">
+                    <div class="four-col">
+                        <img src="images/netaalchimister.jpg">
+                        <div>
+                            <p>Excellent quality and fast service</p>
+                            <h3>Neta Alchimister</h3>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="four-col">
+                        <img src="images/shaharh.jpg">
+                        <div>
+                            <p>Top shel ahaim!!</p>
+                            <h3>Shahar Hayun</h3>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                    </div>
+                    <div class="four-col">
+                        <img src="images/omern.jpg">
+                        <div>
+                            <p>I love it!</p>
+                            <h3>Omer Nudelman</h3>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="video" class="section-video">
+                <div class="video">
+                    <video autoplay muted loop src="images/istockphoto-1007546500-640_adpp_is.mp4"></video>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h1>Follow Us On Facebook</h1>
+                <a href="https://www.facebook.com/Fashion-shop-103914885705757" class="hero-btn">CLICK HERE</a>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer">
+            <h4>About Us</h4>
+            <p>We are happy to share our dreams with you!</p>
+            <div class="icons">
+                <a href="https://www.facebook.com/Fashion-shop-103914885705757" class="fa fa-facebook"></a>
+            </div>
+            <p>Made by&nbsp <i class=" fa fa-users "></i> &nbspIdan, Ray, Maya, Amit</p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

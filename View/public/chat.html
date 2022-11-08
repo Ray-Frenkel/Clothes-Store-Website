@@ -1,0 +1,76 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="style/main.css" type="text/css">
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:8080');
+
+		// on connection to server, ask for user's name with an anonymous callback
+		socket.on('connect', function () {
+			// call the server-side function 'adduser' and send one parameter (value of prompt)
+			socket.emit('adduser', prompt("What's your name?"));
+		});
+		// listener, whenever the server emits 'updatechat', this updates the chat body
+		socket.on('updatechat', function (username, data) {
+			$('#chat').append('<section class="message1"><b>' + username + ':</b> ' + data + '<br></section>');
+		});
+
+		// listener, whenever the server emits 'updateusers', this updates the username list
+		socket.on('updateusers', function (data) {
+			$('#users').empty();
+			$.each(data, function (key, value) {
+				$('#users').append('<div>' + key + '</div>');
+			});
+		});
+
+		// on load of page
+		$(function () {
+			// when the client clicks SEND
+			$('#datasend').click(function () {
+				var message = $('#data').val();
+				$('#data').val('');
+				// tell server to execute 'sendchat' and send along one parameter
+				socket.emit('sendchat', message);
+			});
+
+			// when the client hits ENTER on their keyboard
+			$('#data').keypress(function (e) {
+				if (e.which == 13) {
+					$(this).blur();
+					$('#datasend').focus().click();
+				}
+			});
+		});
+
+	</script>
+	<section class='bodybox'>
+		<h1>Let's Chat</h1>
+		<br>
+		<br>
+		<section class='chatborder'>
+			<h2 id="messages">Users:</h2>
+			<div id="users"></div>
+		</section>
+		<section class='chatborder'>
+			<div>
+				<div id="conversation"></div>
+				<input id="data" style="width:100px;" />
+				<input type="button" id="datasend" class="btn-rmv" value="send" />
+			</div>
+			<br><br><br>
+		</section>
+		<section class='chatborder'>
+			<h2 id="messages">Messages:</h2>
+			<div id="chat"></div>
+		</section>
+	</section>
+</body>
+
+</html>

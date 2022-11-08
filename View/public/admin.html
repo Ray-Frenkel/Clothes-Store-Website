@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+
+</head>
+
+<body>
+    <!-- DATA BASE  -->
+    <section class='bodyboxAdmin'>
+        <h1>Manage Your Data Base</h1>
+        <br>
+        <div>
+            <div id="button">
+                <button type="button" class="myButton" id="button" onclick="ShowDB()">Search</button>
+                <button type="button" class="myButton" id="button" onclick="AddProduct()">Add</button>
+                <button type="button" class="myButton" id="button" onclick="UpdateProduct()">Update</button>
+                <button type="button" class="myButton" id="button" onclick="ClearInput()">Clear</button>
+
+            </div>
+            <div>
+                <label>Key:</label>
+                <input class="key" value="" type="text" placeholder="" readonly>
+                <label>Company:</label>
+                <input class="company" value="" type="text" placeholder="">
+                <label>Price:</label>
+                <input class="price" value="" type="number" placeholder="">
+                <label>Color:</label>
+                <input class="color" value="" type="text" placeholder="">
+                <br>
+                <label>Size:</label>
+                <input class="size" value="" type="text" placeholder="Between S-XXL">
+                <label>Gender:</label>
+                <input class="gender" value="" type="text" placeholder="male/female">
+                <label>Category:</label>
+                <input class="category" value="" type="text" placeholder="t-shirt/plaid">
+                <label>Image:</label>
+                <input class="image" value="" type="text" placeholder="">
+            </div>
+            <br>
+            <div class="errmsg"></div>
+            <div class="tableA">
+
+                <div class="rowA header">
+                    <div class="cellA">
+                        item(key)
+                    </div>
+                    <div class="cellA">
+                        company
+                    </div>
+                    <div class="cellA">
+                        price
+                    </div>
+                    <div class="cellA">
+                        color
+                    </div>
+                    <div class="cellA">
+                        size
+                    </div>
+                    <div class="cellA">
+                        gender
+                    </div>
+                    <div class="cellA">
+                        category
+                    </div>
+                    <div class="cellA">
+                        image
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FACEBOOK -->
+    <div class='bodyboxAdmin'>
+        <h1>Create post in facebook</h1>
+        <br>
+        <textarea id="textbox" style="height: 100px; width: 400px;" class="commentbox"
+            placeholder="What do you want to share?"></textarea>
+
+        <div id="buttons">
+            <button type="button" id="share-button"
+                onclick="faceBookPost(document.getElementById('textbox').value)">Share</button>
+        </div>
+
+    </div>
+    </section>
+
+</body>
+
+</html>
